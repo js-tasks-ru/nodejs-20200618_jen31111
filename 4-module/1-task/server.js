@@ -15,12 +15,12 @@ server.on('request', (req, res) => {
 
       if (req.url.indexOf('/', 2) != -1) {
         res.statusCode = 400;
-        res.end();
+        res.end('');
       } else {
         fs.readFile(filepath, (err, data) => {
           if (err) {
             res.statusCode = 404;
-            res.end();
+            res.end('');
           } else {
             res.end(data);
           }

@@ -28,10 +28,13 @@ router.get('/subscribe', async (ctx, next) => {
 router.post('/publish', async (ctx, next) => {
   const message = ctx.request.body.message;
 
-  subscribers.forEach((resolve) => {
-    resolve(message);
-  });
-  subscribers = [];
+  if (message) {
+    subscribers.forEach((resolve) => {
+      resolve(message);
+    });
+    subscribers = [];
+  }
+  
   ctx.response.status = 200;
 });
 

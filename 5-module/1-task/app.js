@@ -34,7 +34,7 @@ router.post('/publish', async (ctx, next) => {
     });
     subscribers = [];
   }
-  
+
   ctx.response.status = 200;
 });
 
